@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}System|services {% endblock %}
+
+{% block content %}
+
+    <h1 class="cmdbox">Service Control</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label class="cmdbox flvform1" for="selected_service"><b>service name</b></label>
+        <select class="cmdbox flvform1" name="selected_service" id="selected_service">
+            <option value="">---</option>
+            <option value="suricata">suricata.service</option>
+            <option value="flvdax">flvdax.service</option>
+            <option value="flvminer">flvminer.service</option>
+            <!-- Aggiungi altre opzioni per i tuoi servizi -->
+        </select>
+        
+        <label class="cmdbox flvform1" for="action"><b>command</b></label>
+        <select class="cmdbox flvform1" name="action" id="action">
+            <option value="status">Status</option>
+            <option value="start">Start</option>
+            <option value="stop">Stop</option>
+        </select>
+        <input class="flvform" type="submit" value=">> Send request ">
+    </form>
+    <br>
+    <textarea rows="30" cols="88" readonly>{{ result }}</textarea>
+
+{% endblock %}

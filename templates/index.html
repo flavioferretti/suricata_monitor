@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static%}
+{% block title %}Home - {{ host_name  }}{% endblock %}
+
+{% block content %}
+    <h1 class="cmdbox" >suricata_monitor v0.0.1</h1>
+    <p>
+       <center>
+         <img src="{% static 'suricata.png' %}" height="240px" width="300px" class="cmdbox">
+       </center>
+    </p>
+
+<table class="cmdbox">
+    <tr>
+        <td class="flval"><b>hostname</b></td>
+        <td class="flval">{{ host_name }}</td>
+    </tr>
+    <tr>
+        <td class="flval"><b>os_name</b></td>
+        <td class="flval">{{ os_name }}</td>
+    </tr>
+    <tr>
+        <td class="flval"><b>os_type</b></td>
+        <td class="flval">{{ os_type }}</td>
+    </tr>
+    <tr>
+        <td class="flval"><b>uptime</b></td>
+        <td class="flval">{{ uptime }}</td>
+    </tr>
+</table>
+
+    <!-- Add more content specific to the home page as needed -->
+{% endblock %}

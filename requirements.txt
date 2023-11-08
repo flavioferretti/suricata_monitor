@@ -1,0 +1,4 @@
+django
+gunicorn
+black
+django-cors-headers

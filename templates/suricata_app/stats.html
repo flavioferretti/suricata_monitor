@@ -1,0 +1,10 @@
+
+{% extends "base.html" %}
+
+{% block title %}Suricata|stats {% endblock %}
+
+{% block content %}
+    <h1 class="cmdbox">Suricata stats.log</h1>
+    <textarea rows="40" cols="82" readonly>{{ stats_content }}</textarea>
+
+{% endblock %}

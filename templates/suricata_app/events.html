@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Suricata|events {% endblock %}
+
+{% block content %}
+    <h1 class="cmdbox">Suricata eve.json</h1>
+    <textarea rows="40" cols="102" readonly wrap="hard">{{ events_data }}</textarea>
+    <!-- <pre>{{ events_data  }}</pre> -->
+{% endblock %}
