@@ -11,8 +11,10 @@
         <select class="cmdbox flvform1" name="selected_service" id="selected_service">
             <option value="">---</option>
             <option value="suricata">suricata.service</option>
+            <option value="suricata_monitor">suricata_monitor.service</option>
             <option value="flvdax">flvdax.service</option>
             <option value="flvminer">flvminer.service</option>
+            <option value="nginx">nginx.service</option>
             <!-- Aggiungi altre opzioni per i tuoi servizi -->
         </select>
         
@@ -20,7 +22,9 @@
         <select class="cmdbox flvform1" name="action" id="action">
             <option value="status">Status</option>
             <option value="start">Start</option>
+            <option value="restart">Restart</option>
             <option value="stop">Stop</option>
+            <option value="ps">ps aux</option>
         </select>
         <input class="flvform" type="submit" value=">> Send request ">
     </form>

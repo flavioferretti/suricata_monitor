@@ -9,9 +9,15 @@ import subprocess
 
 # suricata log eve.json
 def view_events(request):
-    with open("/var/log/suricata/eve.json", "r") as events_file:
-        events_content = events_file.read()
-    events_content = events_content[-8048:]  # Ottieni gli ultimi 2048 byte
+    #with open("/var/log/suricata/eve.json", "r") as events_file:
+    #    events_content = events_file.read()
+    #events_content = events_content[-8048:]  # Ottieni gli ultimi 2048 byte
+    #command = ['/usr/bin/tail',' -n500', '/var/log/suricata/eve.json', '|', 'jq']
+    command = "/usr/bin/tail -n2000 /var/log/suricata/eve.json | /usr/bin/jq"
+    processo = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    output, errore = processo.communicate()
+    #events_content = subprocess.check_output(command, stderr=subprocess.STDOUT, text=True)
+    events_content = output.decode('utf-8')
     # events_data = json.loads(events_content)
     return render(request, "suricata_app/events.html", {"events_data": events_content})
 
@@ -61,6 +67,10 @@ def service_control(request):
             command = ['/usr/bin/sudo', '/bin/systemctl', 'stop', selected_service]
         elif action == 'status':
             command = ['/usr/bin/sudo', '/bin/systemctl', 'status', selected_service]
+        elif action == 'restart':
+            command = ['/usr/bin/sudo', '/bin/systemctl', 'restart', selected_service]
+        elif action == 'ps':
+            command = ['/usr/bin/sudo', '/usr/bin/ps', 'aux']
         else:
             return HttpResponse("Azione non valida")
 

@@ -3,7 +3,14 @@
 {% block title %}Suricata|events {% endblock %}
 
 {% block content %}
-    <h1 class="cmdbox">Suricata eve.json</h1>
-    <textarea rows="40" cols="102" readonly wrap="hard">{{ events_data }}</textarea>
-    <!-- <pre>{{ events_data  }}</pre> -->
+  <h1 class="cmdbox">Suricata eve.json</h1>
+  <textarea id="myTextarea"  rows="40" cols="102" readonly wrap="hard">{{ events_data }}</textarea>
+
+  <script>
+    // Assume che tu abbia una textarea con l'id "myTextarea"
+    var textarea = document.getElementById("myTextarea");
+    // Imposta la proprietà scrollTop sulla lunghezza totale del contenuto per far apparire la textarea scrollata verso il basso
+    textarea.scrollTop = textarea.scrollHeight;
+  </script>
+
 {% endblock %}
